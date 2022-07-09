@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db-films_api:
+    image: postgres:14
+    restart: always
+    ports:
+      - 5444:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: films_api
