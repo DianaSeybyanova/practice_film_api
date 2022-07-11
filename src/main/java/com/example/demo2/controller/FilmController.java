@@ -15,7 +15,7 @@ public class FilmController {
 
     @PostMapping
     public Film save(@RequestBody FilmDto film){
-        return new Film();
+        return service.save(film);
     }
 
     @GetMapping
