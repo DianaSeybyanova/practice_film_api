@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+import java.time.LocalDate;
 
 @Service
 @RequiredArgsConstructor
@@ -15,9 +16,18 @@ public class FilmService {
 
     public Film save(FilmDto filmDto){
         Film film = new Film()
+                .setIdFilm(UUID.randomUUID().toString())
                 .setNameFilm(filmDto.getNameFilm())
                 .setNameFilmOriginal(filmDto.getNameFilmOriginal())
-                .setIdFilm(UUID.randomUUID().toString());
+                .setReleaseDate(filmDto.getReleaseDate())
+                .setRuntime(filmDto.getRuntime())
+                .setCertification(filmDto.getCertification())
+                .setNumberReviews(filmDto.getNumberReviews())
+                .setRatingKinopoisk(filmDto.getRatingKinopoisk())
+                .setRatingImdb(filmDto.getRatingImdb())
+                .setBudget(filmDto.getBudget())
+                .setGross(filmDto.getGross())
+                ;
         return filmRepository.save(film);
     }
     // Переделать!!
